@@ -151,11 +151,11 @@ iframe {
   justify-content: center;
   align-items: center;
   padding: 15px;
-  background: #514858;
+  background: #1c10a1;
   background: -webkit-linear-gradient(-135deg, #968f8e, #241d20);
   background: -o-linear-gradient(-135deg, #968f8e, #241d20);
   background: -moz-linear-gradient(-135deg, #968f8e, #241d20);
-  background: linear-gradient(-135deg,#968f8e, #241d20 );
+  background: linear-gradient(-135deg,#1380bf, #1c10a1 );
  
 }
 
