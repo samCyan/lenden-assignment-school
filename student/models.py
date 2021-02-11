@@ -2,7 +2,6 @@ from django.db import models
 from django.utils import timezone
 from django.urls import reverse
 from django.core.validators import RegexValidator
-# from subject import models as subject_models
 
 
 class Student(models.Model):
@@ -23,7 +22,6 @@ class Student(models.Model):
   other_name            = models.CharField(max_length=200, blank=True)
   gender                = models.CharField(max_length=10, choices=GENDER, default='male')
   date_of_birth         = models.DateField(default=timezone.now)
-  # current_class         = models.ForeignKey(StudentClass, on_delete=models.SET_NULL, blank=True, null=True)
   date_of_admission     = models.DateField(default=timezone.now)
   roll_no               = models.IntegerField(default=-1)
   ranking               = models.IntegerField(default=0)

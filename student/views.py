@@ -63,22 +63,3 @@ class StudentUpdateView(LoginRequiredMixin, SuccessMessageMixin, UpdateView):
 class StudentDeleteView(LoginRequiredMixin, DeleteView):
     model = Student
     success_url = reverse_lazy('student-list')
-
-
-class StudentBulkUploadView(LoginRequiredMixin, SuccessMessageMixin, CreateView):
-    model = StudentBulkUpload
-    template_name = 'student/students_upload.html'
-    fields = ['csv_file']
-    success_url = '/student/list'
-    success_message = 'Successfully uploaded students'
-
-@login_required
-def downloadcsv(request):
-    response = HttpResponse(content_type='text/csv')
-    response['Content-Disposition'] = 'attachment; filename="student_template.csv"'
-
-    writer = csv.writer(response)
-    writer.writerow(['registration_number', 'surname',
-                     'firstname', 'other_names', 'gender', 'parent_number', 'address', 'current_class'])
-
-    return response

@@ -3,8 +3,6 @@ from datetime import datetime
 from django.test import TestCase
 from django.urls import reverse
 
-from .models import Staff
-
 
 dt_string_format = "%d/%m/%Y"
 

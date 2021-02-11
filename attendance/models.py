@@ -20,13 +20,6 @@ class Attendance(models.Model):
   student             = models.ForeignKey('student.Student', on_delete=models.CASCADE, default=1, related_name='attendance_student')
   teacher             = models.ForeignKey('staff.Staff', on_delete=models.CASCADE, default=1, related_name='attendance_teacher')
 
-  @property
-  def student_count(self):
-      if self.teacher.salary > 100000:
-          return len(self.staff.students)
-      else:
-          return 0
-
   def __str__(self):
     return f'{self.classroom} {self.student} {self.teacher}'
 

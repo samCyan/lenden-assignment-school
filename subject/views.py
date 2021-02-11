@@ -25,12 +25,6 @@ class SubjectCreateView(SuccessMessageMixin, CreateView):
     def get_form(self):
         '''add date picker in forms'''
         form = super(SubjectCreateView, self).get_form()
-        # form.fields['total_duration'].widget = widgets.DateTimeInput(
-        #     attrs={'type': 'datetime-local'})
-        # form.fields['date_of_admission'].widget = widgets.DateInput(attrs={
-        #                                                             'type': 'date'})
-        # form.fields['address'].widget = widgets.Textarea(attrs={'rows': 1})
-        # form.fields['others'].widget = widgets.Textarea(attrs={'rows': 1})
         return form
 
 
@@ -42,12 +36,6 @@ class SubjectUpdateView(SuccessMessageMixin, UpdateView):
     def get_form(self):
         '''add date picker in forms'''
         form = super(SubjectUpdateView, self).get_form()
-        # form.fields['total_duration'].widget = widgets.Du(
-        #     attrs={'type': 'datetime-local'})
-        # form.fields['date_of_admission'].widget = widgets.DateInput(attrs={
-        #                                                             'type': 'date'})
-        # form.fields['address'].widget = widgets.Textarea(attrs={'rows': 1})
-        # form.fields['others'].widget = widgets.Textarea(attrs={'rows': 1})
         return form
 
 class SubjectDeleteView(DeleteView):
