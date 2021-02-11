@@ -23,8 +23,8 @@ class ClassRoom(models.Model):
   capacity            = models.IntegerField(blank=False, default=30)
   web_lecture         = models.CharField(max_length=20, choices=STATUS, default='Active')
   shape               = models.CharField(max_length=20, choices=SHAPES, default='Oval')
-  subjects            = models.ManyToManyField('subject.Subject', default=[], related_name='classroom_subjects')
-  teachers            = models.ManyToManyField('staff.Staff', default=[], related_name='classroom_teachers')
+  subjects            = models.ManyToManyField('subject.Subject', default=[], blank=True, related_name='classroom_subjects')
+  teachers            = models.ManyToManyField('staff.Staff', default=[], blank=True, related_name='classroom_teachers')
 
 
   def __str__(self):

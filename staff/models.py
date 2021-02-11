@@ -26,7 +26,7 @@ class Staff(models.Model):
   salary              = models.IntegerField(blank=False, default=5000)
   mobile_num_regex    = RegexValidator(regex="^[0-9]{10,15}$", message="Entered mobile number isn't in a right format!")
   mobile_number       = models.CharField(validators=[mobile_num_regex], max_length=13, blank=True)
-  subjects            = models.ManyToManyField('subject.Subject', default=[])
+  subjects            = models.ManyToManyField('subject.Subject', blank=True, default=[])
   address             = models.TextField(blank=True)
   others              = models.TextField(blank=True)
   takes_web_lecture   = models.BooleanField(default=False)
