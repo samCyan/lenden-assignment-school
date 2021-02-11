@@ -27,7 +27,7 @@ class Student(models.Model):
   ranking               = models.IntegerField(default=0)
   mobile_num_regex      = RegexValidator(regex="^[0-9]{10,15}$", message="Entered mobile number isn't in a right format!")
   parent_mobile_number  = models.CharField(validators=[mobile_num_regex], max_length=13, blank=True)
-  subjects              = models.ManyToManyField('subject.Subject')
+  subjects              = models.ManyToManyField('subject.Subject', default=[])
   address               = models.TextField(blank=True)
   others                = models.TextField(blank=True)
   passport              = models.ImageField(blank=True, upload_to='student/passports/')
