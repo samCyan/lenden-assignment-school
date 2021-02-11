@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+
+{% block title %}
+
+  {% if object %}
+    Update {{ object }}
+  {% else %}
+    Add new subject
+  {% endif %}
+
+{% endblock title %}
+
+
+{% block content %}
+
+<form action="" method="POST">
+  {% csrf_token %}
+
+  {% include 'core/form_snippet.html' %}
+
+  {% if object %}
+    <input type="submit" class="btn btn-success" value="Update Record">
+  {% else %}
+    <input type="submit" class="btn btn-success" value="Add new subject">
+  {% endif %}
+</form>
+
+
+{% endblock content %}

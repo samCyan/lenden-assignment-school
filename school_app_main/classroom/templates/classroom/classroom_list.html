@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+
+{% block title %}ClassRoom{% endblock title %}
+
+{% block breadcrumb %}
+<a class="btn btn-success" href="{% url 'classroom-create' %}"><i
+    class="fas fa-plus"></i> New classroom</a>
+{% endblock breadcrumb %}
+
+{% block content %}
+  <table id="classroomtable" class="table table-bordered table-hover">
+    <thead class="thead-light">
+      <tr>
+        <th>S/N</th>
+        <th>Name</th>
+        <th>Capacity</th>
+        <th>Web Lecture Support</th>
+        <th>Shape</th>
+        <th colspan="3">Subjects</th>
+        <th>Teachers</th>
+      </tr>
+    </thead>
+    <tbody>
+
+      {% for classroom in object_list %}
+        <tr class='clickable-row' data-href="{% url 'classroom-detail' classroom.id %}">
+          <td>{{ forloop.counter}}</td>
+          <td>{{ classroom.name}}</td>
+          <td>{{ classroom.capacity}}</td>
+          <td>{{ classroom.web_lecture}}</td>
+          <td>{{ classroom.shape}}</td>
+          <td colspan="3" id="subjectId">
+            <ul>
+              {% for subject in classroom.subjects.all %}
+              {{ subject.name }} <br/>
+              {% endfor %}
+            </ul>
+          </td>
+          <td id="subjectId">
+            <ul>
+              {% for teacher in classroom.teachers.all %}
+              {{ teacher.firstname }} <br/>
+              {% endfor %}
+            </ul>
+          </td>
+        </tr>
+      {% endfor %}
+
+    </tbody>
+  </table>
+{% endblock content %}
+
+
+{% block morejs %}
+<script>
+   $('#classroomtable').DataTable({
+    select: false
+    });
+</script>
+
+{% endblock morejs %}

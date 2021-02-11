@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+{% block title %}Subject{% endblock title %}
+
+{% block breadcrumb %}
+<a class="btn btn-success" href="{% url 'subject-create' %}"><i
+    class="fas fa-plus"></i> New subject</a>
+{% endblock breadcrumb %}
+
+{% block content %}
+  <table id="subjecttable" class="table table-bordered table-hover">
+    <thead class="thead-light">
+      <tr>
+        <th>S/N</th>
+        <th>Name</th>
+        <th>Total Duration</th>
+        <th>Per Class Duration</th>
+        <th>Class Room</th>
+      </tr>
+    </thead>
+    <tbody>
+
+      {% for subject in object_list %}
+        <tr class='clickable-row' data-href="{% url 'subject-detail' subject.id %}">
+          <td>{{ forloop.counter}}</td>
+          <td>{{ subject.name}}</td>
+          <td>{{ subject.total_duration}}</td>
+          <td>{{ subject.per_class_duration}}</td>
+          <td>{{ subject.classroom}}</td>
+        </tr>
+      {% endfor %}
+
+    </tbody>
+  </table>
+{% endblock content %}
+
+
+{% block morejs %}
+<script>
+   $('#subjecttable').DataTable({
+    select: false
+    });
+</script>
+
+{% endblock morejs %}

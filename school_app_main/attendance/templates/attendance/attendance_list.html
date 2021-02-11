@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+{% block title %}Attendance{% endblock title %}
+
+{% block breadcrumb %}
+<a class="btn btn-success" href="{% url 'attendance-create' %}"><i
+    class="fas fa-plus"></i> New attendance</a>
+{% endblock breadcrumb %}
+
+{% block content %}
+  <table id="attendancetable" class="table table-bordered table-hover">
+    <thead class="thead-light">
+      <tr>
+        <th>S/N</th>
+        <th>Date</th>
+        <th>Classroom</th>
+        <th>Student</th>
+        <th>Teacher</th>
+      </tr>
+    </thead>
+    <tbody>
+
+      {% for attendance in object_list %}
+        <tr class='clickable-row' data-href="{% url 'attendance-detail' attendance.id %}">
+          <td>{{ forloop.counter}}</td>
+          <td>{{ attendance.date}}</td>
+          <td>{{ attendance.classroom}}</td>
+          <td>{{ attendance.student}}</td>
+          <td>{{ attendance.teacher}}</td>
+
+        </tr>
+      {% endfor %}
+
+    </tbody>
+  </table>
+{% endblock content %}
+
+
+{% block morejs %}
+<script>
+   $('#attendancetable').DataTable({
+    select: false
+    });
+</script>
+
+{% endblock morejs %}
