@@ -20,7 +20,7 @@ class StaffAnalyticsListView(ListView):
         return ctx
 
     def get_queryset(self):
-        staffs = Attendance.objects.filter(teacher__salary__gte=10000).values('teacher__firstname', 'teacher__salary').order_by('teacher__id').annotate(students_count=Count('student'))
+        staffs = Attendance.objects.filter(teacher__salary__gte=100000).values('teacher__firstname', 'teacher__salary').order_by('teacher__id').annotate(students_count=Count('student'))
         return staffs
 
 

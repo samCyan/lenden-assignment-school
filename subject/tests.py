@@ -18,7 +18,7 @@ class SubjectTest(TestCase):
     def test_subject_creation(self):
         s = self.create_subject()
         self.assertTrue(isinstance(s, Subject))
-        self.assertEqual(str(s), f'{s.chapters} ')
+        self.assertEqual(str(s), f'{s.name}')
 
     def test_whatever_list_view(self):
         s = self.create_subject()

@@ -12,7 +12,7 @@ class Subject(models.Model):
 
 
   def __str__(self):
-    return f'{self.chapters} '
+    return f'{self.name}'
 
   def get_absolute_url(self):
     return reverse('subject-detail', kwargs={'pk': self.pk})
